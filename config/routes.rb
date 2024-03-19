@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "todos#index"
 
+  # Creates routes for the standard CRUD actions as well as _path and _url helpers
   resources :todos
 end
