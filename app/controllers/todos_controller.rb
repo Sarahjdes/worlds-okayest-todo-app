@@ -64,10 +64,7 @@ class TodosController < ApplicationController
 
   private
     def todo_params
-      # params[:todo][:content]
-      params.require(:todo).permit(:content)
-
       # Strong typing allows to pass an array or params in permit
-      # params.require(:todo).permit(:content, :another_param)
+      params.require(:todo).permit(:title, :content)
     end
-end
+  end
