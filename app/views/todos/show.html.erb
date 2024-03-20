@@ -1,3 +1,7 @@
 <h1><%= @todo.content %></h1>
 
+<ul>
+    <li><%= link_to "Edit", edit_todo_path(@todo) %></li>
+</ul>
+
 <%= link_to "Back to list", todos_path %>

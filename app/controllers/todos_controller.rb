@@ -33,6 +33,24 @@ class TodosController < ApplicationController
     end
   end
 
+  def edit
+    # Finds the current record to pre-fill the form field
+    @todo = Todo.find(params[:id])
+  end
+
+  # Action on submit
+  def update
+    # Finds the current record
+    @todo = Todo.find(params[:id])
+
+    # Tries to update the current record with the params passed during form submission
+    if @todo.update(todo_params)
+      redirect_to @todo
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
     def todo_params
       # params[:todo][:content]
