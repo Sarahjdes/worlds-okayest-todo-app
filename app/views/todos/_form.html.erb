@@ -1,15 +1,25 @@
-<%= form_with model: todo do |form| %>
-    <div>
-        <%= form.label :title %><br>
-        <%= form.text_field :title %>
+<%= form_with model: todo, class: "space-y-4" do |form| %>
+    <div class="turbo-form space-y-2 flex flex-col">
+        <%= form.label :title, class: "text-sm" %>
+        <%= form.text_field :title, class: "border-slate-400 rounded" %>
+        <% @todo.errors.full_messages_for(:title).each do |message| %>
+            <div class="full-message"><%= message %></div>
+        <% end %>
     </div>
 
-    <div>
-        <%= form.label :content %><br>
-        <%= form.text_area :content %>
+    <div class="turbo-form space-y-2 flex flex-col">
+        <%= form.label :content, class: "text-sm" %>
+        <%= form.text_area :content, rows: 4, class: "border-slate-400 rounded" %>
+        <% @todo.errors.full_messages_for(:content).each do |message| %>
+            <div class="full-message"><%= message %></div>
+        <% end %>
     </div>
 
-    <div>
-        <%= form.submit %>
+    <div class="space-x-4 flex justify-end border-t pt-8">
+        <%= link_to root_path do %>
+            <button class="btn btn--outline">Back</button>
+        <% end %>
+
+        <%= form.submit class: "btn btn--primary" %>
     </div>
 <% end %>

@@ -1,3 +1,6 @@
-<h1>Edit todo</h1>
+<div class="container space-y-8">
+    <h2>Edit todo</h2>
 
-<%= render "form", todo: @todo %>
+    <%# renders the "form" partial (_form.html.erb, it uses a underscore) and passes @todo as todo %>
+    <%= render "form", todo: @todo %>
+</div>

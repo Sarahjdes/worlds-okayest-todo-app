@@ -1,9 +1,17 @@
-<h1>My Todos</h1>
+<div class="container space-y-8">
+    <h2>Things to do</h2>
 
-<ul>
-    <% @todos.each do |todo| %>
-        <li>
-            <%= link_to todo.title, todo %>
-        </li>
-    <% end %>
-</ul>
+    <ul class="list-disc list-inside pl-8">
+        <% @todos.each do |todo| %>
+            <li class="hover:text-slate-600">
+                <%= link_to todo.title, todo %>
+            </li>
+        <% end %>
+    </ul>
+
+    <div class="space-x-4 flex justify-end border-t pt-8">
+        <%= link_to new_todo_path do %>
+            <button class="btn btn--primary">Add todo</button>
+        <% end %>
+    </div>
+</div>
