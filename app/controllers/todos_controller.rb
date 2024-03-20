@@ -51,6 +51,17 @@ class TodosController < ApplicationController
     end
   end
 
+  # Action mapped to the DELETE /todos/:id request
+  def destroy
+    # Finds the todo corresponding to the /todos/show/id
+    @todo = Todo.find(params[:id])
+    # Deletes that todo
+    @todo.destroy
+
+    # Redirects to the root_path (which we've configured to the list of todos, todos_path)
+    redirect_to root_path, status: :see_other
+  end
+
   private
     def todo_params
       # params[:todo][:content]
