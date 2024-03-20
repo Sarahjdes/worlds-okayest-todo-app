@@ -1,0 +1,10 @@
+<%= form_with model: todo do |form| %>
+    <div>
+        <%= form.label :content %><br>
+        <%= form.text_field :content %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
