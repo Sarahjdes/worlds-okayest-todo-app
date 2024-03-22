@@ -1,27 +1,32 @@
-<h1><%= @todo.title %></h1>
+<div class="container space-y-8">
+    <h2><%= @todo.title %></h2>
 
-<p><%= @todo.content %></p>
+    <p><%= @todo.content %></p>
 
-<ul>
-    <li>
-        <%= link_to "Edit", edit_todo_path(@todo) %>
-    </li>
-    <li>
-        <%= link_to "Delete", todo_path(@todo), data: {
+    <div class="space-x-4 flex justify-end border-t pt-8">
+        <%= link_to root_path do %>
+            <button class="btn btn--outline">Back</button>
+        <% end %>
+
+        <%= link_to edit_todo_path(@todo) do %>
+            <button class="btn btn--primary">Edit</button>
+        <% end %>
+
+        <%= link_to todo_path(@todo), data: {
             turbo_method: :delete,
             turbo_confirm: "Are you sure you want to delete that todo?"
-        } %>
+        } do %>
+            <button class="btn btn--danger">Delete</button>
+        <% end %>
         <%#
             HTML :
                 <a
                     data-turbo-method="delete"      # changes the request from GET to DELETE
-                    data-turbo-confirm="Are you sure you want to delete that todo?"
+                    data-turbo-confirm="Are you sure you want to delete that item?"
                     href="/todos/4"
                 >
                     Delete
                 </a>
         %>
-    </li>
-</ul>
-
-<%= link_to "Back to list", todos_path %>
+    </div>
+</div>

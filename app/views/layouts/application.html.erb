@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FirstRailsTodoApp</title>
+    <title></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-slate-50 text-slate-900">
+    <main class="md:container md:mx-auto mt-12 px-5 py-5">
+      <h1 class="text-4xl font-semibold text-center">World's Okayest TODO App</h1>
+      <div class="border-slate-400 border rounded mt-12 py-12 px-16 shadow-md bg-white">
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>
