@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TodosController < ApplicationController
   # Action for the index view
   def index
@@ -63,8 +65,9 @@ class TodosController < ApplicationController
   end
 
   private
-    def todo_params
-      # Strong typing allows to pass an array or params in permit
-      params.require(:todo).permit(:title, :content)
-    end
+
+  def todo_params
+    # Strong typing allows to pass an array or params in permit
+    params.require(:todo).permit(:title, :content)
   end
+end
