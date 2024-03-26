@@ -53,6 +53,15 @@ group :development, :test do
 
   # FactoryBot Rails to use factories using testing [https://github.com/thoughtbot/factory_bot_rails]
   gem 'factory_bot_rails'
+
+  # Use Capybara to test user interaction
+  gem 'capybara'
+
+  # JavasScript-enabled driver for testing e2e
+  gem 'selenium-webdriver'
+
+  # Interrompre l'exécution
+  gem 'pry'
 end
 
 group :development do
