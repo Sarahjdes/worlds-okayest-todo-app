@@ -29,7 +29,7 @@ class TodosController < ApplicationController
       redirect_to @todo
     else
       # Will render new view with an unprocessable_entity status
-      render :new, status: unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
