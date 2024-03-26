@@ -1,0 +1,37 @@
+require: rubocop-rails
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'tmp/**/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'
+    - 'app/graphql/**/*'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/*'
+
+Style/Documentation:
+  Enabled: false
+
+Naming/PredicateName:
+  Exclude:
+    - 'app/graphql/types/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Rails/Output:
+  Exclude:
+    - 'lib/spooler.rb'
+    - 'lib/spooler/**/*'
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false

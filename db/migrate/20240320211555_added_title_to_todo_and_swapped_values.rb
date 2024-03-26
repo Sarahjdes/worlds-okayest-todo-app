@@ -7,6 +7,7 @@ class AddedTitleToTodoAndSwappedValues < ActiveRecord::Migration[7.1]
       t.text :content
     end
 
+    # Next time, either use up/down methogs or reversible method
     change_column :todos, :title, :string
   end
 end

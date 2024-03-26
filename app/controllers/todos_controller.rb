@@ -17,6 +17,11 @@ class TodosController < ApplicationController
     @todo = Todo.new
   end
 
+  def edit
+    # Finds the current record to pre-fill the form field
+    @todo = Todo.find(params[:id])
+  end
+
   # Action on submit
   def create
     # Instentiates a new entity with the params provided in the form
@@ -33,11 +38,6 @@ class TodosController < ApplicationController
       # Will render new view with an unprocessable_entity status
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-    # Finds the current record to pre-fill the form field
-    @todo = Todo.find(params[:id])
   end
 
   # Action on submit
