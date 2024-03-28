@@ -22,8 +22,7 @@ RSpec.describe 'todos/index page', type: :feature do
   end
 
   it 'displays a list of todos containing exactly two todo after creating another one' do
-    another_todo = Todo.new(title: 'Another todo', content: 'And some more content')
-    another_todo.save
+    Todo.create(title: 'Another todo', content: 'And some more content')
 
     refresh
 
