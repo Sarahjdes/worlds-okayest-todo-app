@@ -27,6 +27,7 @@ Naming/PredicateName:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'config/**/*'
 
 Rails/Output:
   Exclude:
