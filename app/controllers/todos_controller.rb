@@ -9,7 +9,7 @@ class TodosController < ApplicationController
 
   def show
     # Selects an item depending on the :id param of the /todos/show/:id url
-    @todo = Todo.find(params[:id])
+    @todo = find_todo
   end
 
   def new
@@ -19,7 +19,7 @@ class TodosController < ApplicationController
 
   def edit
     # Finds the current record to pre-fill the form field
-    @todo = Todo.find(params[:id])
+    @todo = find_todo
   end
 
   # Action on submit
@@ -43,7 +43,7 @@ class TodosController < ApplicationController
   # Action on submit
   def update
     # Finds the current record
-    @todo = Todo.find(params[:id])
+    @todo = find_todo
 
     # Tries to update the current record with the params passed during form submission
     if @todo.update(todo_params)
@@ -56,7 +56,7 @@ class TodosController < ApplicationController
   # Action mapped to the DELETE /todos/:id request
   def destroy
     # Finds the todo corresponding to the /todos/show/id
-    @todo = Todo.find(params[:id])
+    @todo = find_todo
     # Deletes that todo
     @todo.destroy
 
@@ -66,8 +66,14 @@ class TodosController < ApplicationController
 
   private
 
+  def find_todo
+    # This would especially be useful if we wanted to set @todo
+    # to something more complex than this
+    Todo.find(params[:id])
+  end
+
   def todo_params
-    # Strong typing allows to pass an array or params in permit
+    # Strong params allows to pass an array or params in permit
     params.require(:todo).permit(:title, :content)
   end
 end
