@@ -33,6 +33,16 @@ RSpec.describe 'Todos', type: :request do
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
+
+    # Controller validation
+    # Since the payload is not valid, it will return a :bad_request even before there is an ActiveModel validation
+    context 'with invalid payload' do
+      it 'has a bad_request status' do
+        post '/todos', params: {}
+
+        expect(response).to have_http_status(:bad_request)
+      end
+    end
   end
 
   describe 'PATCH /todos/:id' do
@@ -66,13 +76,13 @@ RSpec.describe 'Todos', type: :request do
 
     # Controller validation
     # Since the payload is not valid, it will return a :bad_request even before there is an ActiveModel validation
-    # context 'with invalid payload' do
-    #   it 'has a bad_request status' do
-    #     patch "/todos/#{todo.id}", params: {}
+    context 'with invalid payload' do
+      it 'has a bad_request status' do
+        patch "/todos/#{todo.id}", params: {}
 
-    #     expect(response).to have_http_status(:bad_request)
-    #   end
-    # end
+        expect(response).to have_http_status(:bad_request)
+      end
+    end
   end
 
   describe 'DELETE /todos/:id' do
