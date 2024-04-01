@@ -13,6 +13,7 @@ RSpec.describe 'todos/show page', type: :feature do
     it 'prompts the user a confirmation message on click' do
       click_link(text: 'Delete', href: todo_path(todo))
 
+      # There has to be something more convenient that this, but haven't found it yet
       sleep 1
 
       confirm_text = page.driver.browser.switch_to.alert.text
