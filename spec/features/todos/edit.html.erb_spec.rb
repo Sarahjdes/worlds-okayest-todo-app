@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'support/features/shared_examples/form_behavior'
+require 'support/features/shared_examples/todo_form_behavior'
 
 RSpec.describe 'todos/edit page', type: :feature do
   let!(:todo) { create(:todo) }

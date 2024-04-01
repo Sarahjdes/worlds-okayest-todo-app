@@ -36,8 +36,6 @@ end
 Capybara.default_driver = :selenium_chrome_headless
 Capybara.javascript_driver = :selenium_chrome_headless
 
-require 'support/features/shared_examples/form_behavior'
-
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [

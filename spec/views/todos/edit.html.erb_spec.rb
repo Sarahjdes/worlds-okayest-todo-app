@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'support/views/shared_examples/form_behavior'
+require 'support/views/shared_examples/todo_form_behavior'
 
 RSpec.describe 'todos/edit.html.erb', type: :view do
   before(:each) do

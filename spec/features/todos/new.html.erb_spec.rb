@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'support/features/shared_examples/form_behavior'
+require 'support/features/shared_examples/todo_form_behavior'
 
 RSpec.describe 'todos/new page', type: :feature do
   before do
