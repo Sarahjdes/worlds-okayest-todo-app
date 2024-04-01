@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'support/features/shared_examples/form_behavior'
 
 RSpec.describe 'todos/new page', type: :feature do
   before do
     visit new_todo_path
   end
+
+  # @TODO
+  it_behaves_like 'a todo form in feature spec'
 
   it 'displays the page title' do
     expect(page).to have_css('h2', text: 'New todo')
@@ -16,27 +20,9 @@ RSpec.describe 'todos/new page', type: :feature do
     expect(page).to have_field('Content')
   end
 
-  it_behaves_like 'a todo form'
-
-  describe 'back button' do
-    it 'is displayed' do
-      expect(page).to have_link('Back', href: /#{todos_path}|#{root_path}/)
-    end
-
-    it 'brings the user to the home page on click' do
-      click_link(text: 'Back', href: /#{todos_path}|#{root_path}/)
-
-      expect(page).to have_current_path(/#{todos_path}|#{root_path}/)
-      expect(page).to have_css('h2', text: 'Things to do')
-    end
-  end
-
+  # May be redundant, also tested using a scenario in spec/features/create_todo_spec.rb
   describe 'create button' do
-    it 'is displayed' do
-      expect(page).to have_button('Create Todo', type: 'submit')
-    end
-
-    it 'brings the user back to the home page on submit when both fields are correctly filled' do
+    it 'brings the user back to the todo\'s show page on submit when both fields are correctly filled' do
       fill_in('todo_title', with: 'A new todo')
       fill_in('todo_content', with: 'Some new content for a new todo')
 

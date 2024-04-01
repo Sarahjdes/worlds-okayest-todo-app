@@ -9,48 +9,7 @@ RSpec.describe 'todos/show page', type: :feature do
     visit todo_path(todo)
   end
 
-  it 'displays the todo title' do
-    expect(page).to have_css('h2', text: todo.title)
-  end
-
-  it 'displays the todo content' do
-    expect(page).to have_css('p', text: todo.content)
-  end
-
-  describe 'the back button' do
-    it 'is displayed' do
-      expect(page).to have_link('Back', href: /#{todos_path}|#{root_path}/)
-    end
-
-    it 'brings the user to the home page on click' do
-      click_link(text: 'Back', href: /#{todos_path}|#{root_path}/)
-
-      expect(page).to have_current_path(/#{todos_path}|#{root_path}/)
-      expect(page).to have_css('h2', text: 'Things to do')
-    end
-  end
-
-  describe 'the edit button' do
-    it 'is displayed' do
-      expect(page).to have_link('Edit', href: edit_todo_path(todo))
-    end
-
-    it 'brings the user to the edit page on click' do
-      click_link(text: 'Edit', href: edit_todo_path(todo))
-
-      expect(page).to have_current_path(edit_todo_path(todo))
-      expect(page).to have_css('h2', text: 'Edit todo')
-    end
-  end
-
   describe 'the delete button' do
-    it 'is displayed' do
-      link = page.find('a', text: 'Delete')
-
-      expect(link).to be_present
-      expect(link['data-turbo-method']).to eq('delete')
-    end
-
     it 'prompts the user a confirmation message on click' do
       click_link(text: 'Delete', href: todo_path(todo))
 

@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'support/features/shared_examples/form_behavior'
 
-RSpec.shared_examples 'a todo form' do
+RSpec.shared_examples 'a todo form in feature spec' do
   describe 'with an empty title field on submit' do
     it 'keeps user on same page' do
       current_path_variable = current_path
