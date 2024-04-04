@@ -10,6 +10,12 @@ rails db:migrate
 ./bin/dev
 ```
 
+## Running tests
+
+```
+bundle exec rspec
+```
+
 ## Liste de choses que je peux faire :
 - Créer un contrôleur et lui ajouter actions pour la majorité des routes de base (todos#index, todos#create, todos#new, todos#edit, todos#show, todos#update et todos#destroy)
 - Créer un modèle et ses règles de validation
